@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_bg_splash">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/coda_extra_bold"
+            android:gravity="center"
+
+            android:textColor="@color/app_color"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imvSetting"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="1dp"
+            android:src="@drawable/ic_setting"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvTitle" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_title_home"
+            app:layout_constraintDimensionRatio="360:224"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvTitle" />
+
+
+        <ScrollView
+            android:id="@+id/scvMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginBottom="0dp"
+            android:elevation="1dp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--                &lt;!&ndash;            gl05&ndash;&gt;-->
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/gl05"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="vertical"-->
+                <!--                    app:layout_constraintGuide_percent="0.57" />-->
+
+                <!--            gl063-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/gl04"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCreate"
+                    app:layout_constraintDimensionRatio="1.76:1.35"
+                    app:layout_constraintStart_toStartOf="@+id/btnCreate"
+                    app:layout_constraintTop_toTopOf="@+id/btnCreate" />   <!--            gl063-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/gl063"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnRandomCat"
+                    app:layout_constraintDimensionRatio="1.6:1.115"
+                    app:layout_constraintEnd_toEndOf="@+id/btnRandomCat"
+                    app:layout_constraintTop_toTopOf="@+id/btnRandomCat" />
+                <!--                &lt;!&ndash;            gl061&ndash;&gt;-->
+                <!--                <androidx.constraintlayout.widget.Guideline-->
+                <!--                    android:id="@+id/gl061"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="vertical"-->
+                <!--                    app:layout_constraintGuide_begin="120dp" />-->
+
+                <!--            btnCreate-->
+                <ImageView
+                    android:id="@+id/btnCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_frame_home1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <!--            tv1-->
+                <com.fokalore.ocmaker.create.utils.StrokeTextView
+                    android:id="@+id/tv1"
+                    style="@style/single_marquee"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:fontFamily="@font/rufing_personaluse"
+                    android:gravity="center"
+                    android:text="@string/pony_maker"
+                    android:textColor="@color/app_color"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCreate"
+                    app:layout_constraintEnd_toEndOf="@+id/btnCreate"
+                    app:layout_constraintStart_toEndOf="@+id/gl04"
+                    app:layout_constraintTop_toTopOf="@+id/btnCreate"
+                    app:strokeJoinStyle="miter"
+                    app:strokeMiter="2dp" />
+
+                <!--   gl063         btnQuickMaker-->
+                <ImageView
+                    android:id="@+id/btnRandomCat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_frame_home2"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCreate" />
+
+                <!--            tv2-->
+                <com.fokalore.ocmaker.create.utils.StrokeTextView
+                    android:id="@+id/tv2"
+                    style="@style/single_marquee"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:fontFamily="@font/crimson_text_bold"
+                    android:gravity="center"
+                    android:text="@string/random_cat"
+                    android:textColor="@color/FF0000"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnRandomCat"
+                    app:layout_constraintEnd_toStartOf="@+id/gl063"
+                    app:layout_constraintStart_toStartOf="@+id/btnRandomCat"
+                    app:layout_constraintTop_toTopOf="@+id/btnRandomCat"
+                    app:strokeJoinStyle="miter"
+                    app:strokeMiter="5dp"
+                    app:strokeWidth="1dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintDimensionRatio="3.42:1.27"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnRandomCat">
+
+                    <com.fokalore.ocmaker.create.utils.StrokeTextView
+                        android:id="@+id/btnQuickMaker"
+                        style="@style/single_marquee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/img_frame_home3"
+                        android:fontFamily="@font/rufing_personaluse"
+                        android:gravity="center"
+                        android:text="@string/quickcreate"
+                        android:textColor="@color/app_color"
+                        android:textSize="24sp"
+                        app:strokeJoinStyle="miter"
+                        app:strokeMiter="5dp"
+                        app:strokeWidth="1dp" />
+
+                    <com.fokalore.ocmaker.create.utils.StrokeTextView
+                        android:id="@+id/btnMyAlbum"
+                        style="@style/single_marquee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/img_frame_home4"
+                        android:fontFamily="@font/rufing_personaluse"
+                        android:gravity="center"
+                        android:text="@string/my_work"
+                        android:textColor="@color/FF0000"
+                        android:textSize="24sp"
+                        app:strokeJoinStyle="miter"
+                        app:strokeMiter="5dp"
+                        app:strokeWidth="1dp" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

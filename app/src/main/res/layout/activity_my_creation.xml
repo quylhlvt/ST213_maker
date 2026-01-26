@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/img_bg_splash">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imvBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:elevation="1dp"
+            android:src="@drawable/ic_back_app"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.fokalore.ocmaker.create.utils.StrokeTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rufing_personaluse"
+            android:text="@string/my_work"
+            android:maxWidth="200dp"
+            android:textColor="@color/app_color"
+            android:textSize="24sp"
+            app:strokeColor="@color/app_color"
+            app:layout_constraintBottom_toBottomOf="@id/imvBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="@id/imvBack"
+            android:layout_marginHorizontal="100dp"
+            android:singleLine="true"
+            style="@style/single_marquee"
+            android:freezesText="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imvTickAll"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:visibility="gone"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/imv_tick_all_false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imvBack"
+            app:layout_constraintBottom_toBottomOf="@id/imvBack"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imvDelete"
+            android:layout_width="20dp"
+            android:visibility="gone"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/imv_delete1"
+            app:layout_constraintEnd_toStartOf="@id/imvTickAll"
+            app:layout_constraintTop_toTopOf="@id/imvBack"
+            app:layout_constraintBottom_toBottomOf="@id/imvBack"/>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ll"
+            app:strokeWidth="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/imvBack">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+          >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="41dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnAvatar"
+                    app:layout_constraintDimensionRatio="1.41:0.41"
+                    style="@style/single_marquee"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_btn_my_work"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/rufing_personaluse"
+                    android:freezesText="true"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text="@string/avatar"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="41dp">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnDesign"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_btn_my_work_unselect"
+                    android:fontFamily="@font/rufing_personaluse"
+                    android:gravity="center"
+                    android:text="@string/design"
+                    android:textColor="@color/app_color"
+                    android:textSize="16sp"
+                    app:layout_constraintDimensionRatio="1.41:0.41"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llNull"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+<!--        <ImageView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="150dp"-->
+<!--            android:adjustViewBounds="true"-->
+<!--            android:src="@drawable/img_no_item"/>-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoItem"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                style="@style/single_marquee"
+                android:gravity="center"
+                android:fontFamily="@font/rufing_personaluse"
+                android:text="@string/no_item_here"
+                android:textColor="@color/app_color"
+                android:freezesText="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:layout_marginHorizontal="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll"
+            app:spanCount="2"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_my_avatar" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvDesign"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="8dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll"
+            app:spanCount="2"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_my_design" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="@id/llBottom"
+            app:layout_constraintTop_toTopOf="@+id/layoutSticker" />
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/layoutSticker"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/llBottom">
+
+            <LinearLayout
+                android:id="@+id/btnWhatsApp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/btn_whatsapp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/ic_whatsapp" />
+
+                <TextView
+                    android:id="@+id/txtWhatsapp"
+                    style="@style/single_marquee"
+                    android:freezesText="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:focusable="true"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center"
+                    android:text="@string/add_to_whatsapp"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnTelegram"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_telegram"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/ic_telegram" />
+
+                <TextView
+                    android:id="@+id/txtTelegram"
+                    style="@style/single_marquee"
+                    android:freezesText="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="center"
+                    android:text="@string/add_to_telegram"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llBottom"
+            android:layout_width="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/btnShareAll"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:paddingHorizontal="12dp"-->
+<!--                android:layout_marginHorizontal="8dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:background="@drawable/bg_btn_share"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="24dp"-->
+<!--                    android:layout_height="24dp"-->
+<!--                    android:src="@drawable/ic_share_my_creation" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/tvShare"-->
+<!--                    style="@style/single_marquee"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:ellipsize="marquee"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:marqueeRepeatLimit="3"-->
+<!--                    android:maxWidth="100dp"-->
+<!--                    android:paddingTop="2dp"-->
+<!--                    android:singleLine="true"-->
+<!--                    android:text="@string/share"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16sp" />-->
+<!--            </LinearLayout>-->
+
+            <LinearLayout
+                android:id="@+id/btnDownload"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginHorizontal="8dp"
+                android:paddingHorizontal="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_download_my_album"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_download_mywork" />
+
+
+                <TextView
+                    android:id="@+id/tvDownload"
+                    style="@style/single_marquee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:ellipsize="marquee"
+                    android:fontFamily="@font/roboto_bold"
+                    android:maxWidth="100dp"
+                    android:singleLine="true"
+                    android:text="@string/download"
+                    android:freezesText="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
