@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.56" />
+            app:layout_constraintGuide_percent="0.65" />
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -81,6 +81,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layerType="hardware"
+            android:layout_marginBottom="10dp"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,20 +94,29 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
         </com.fokalore.ocmaker.create.custom.DrawView>
+
         <ImageView
             android:id="@+id/navBottom"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:src="@drawable/bg_nav_bg"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
             android:gravity="center"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:src="@drawable/bg_nav_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/llBottom"
+            app:layout_constraintDimensionRatio="227:42"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/llBottom" />
         <LinearLayout
             android:id="@+id/llBottom"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="56dp"
             android:gravity="center"
+            android:paddingHorizontal="15dp"
+            app:layout_constraintDimensionRatio="227:56"
             android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -142,8 +152,9 @@
             android:background="@drawable/bg_select_img_color"
             android:layout_width="0dp"
             android:layout_height="41dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="-28dp"
             android:weightSum="2"
+            android:id="@+id/linearbg"
             android:gravity="center"
             app:layout_constraintBottom_toTopOf="@id/ctl"
             app:layout_constraintDimensionRatio="0.91:0.41"
@@ -165,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_weight="1"
-                android:src="@drawable/img_img_select"
+                android:src="@drawable/img_bg_unselect"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -173,17 +184,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ctl"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/llBottom"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline_vertical">
+            android:layout_height="220dp"
+            app:layout_constraintBottom_toTopOf="@id/llBottom">
 
             <LinearLayout
+                android:layout_marginTop="40dp"
                 android:id="@+id/llBG"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <include
                     android:id="@+id/iclBg"
                     layout="@layout/layout_bg"
@@ -234,132 +242,132 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <LinearLayout
+            android:visibility="gone"
+            android:elevation="4dp"
             android:id="@+id/llLoading"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="#A0949494"
-            android:elevation="4dp"
             android:gravity="center"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#80545454"
-                android:gravity="center"
+                android:weightSum="800"
                 android:orientation="vertical"
-                android:weightSum="800">
+                android:gravity="center">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_weight="160"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginHorizontal="22dp"
-                    android:layout_weight="155">
+                    android:layout_marginHorizontal="57dp">
 
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/bg_dialog"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
 
                     <FrameLayout
                         android:id="@+id/titleFame"
                         android:layout_width="0dp"
-                        android:layout_height="41dp"
+                        android:layout_height="37dp"
                         android:background="@drawable/bg_title_dialog"
+                        app:layout_constraintDimensionRatio="1.1:0.37"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:elevation="1dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <TextView
+                            style="@style/single_marquee"
+                            app:strokeJoinStyle="miter"
+                            android:id="@+id/txtTitle"
+                            android:gravity="center"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/rufing_personaluse"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/loading"/>
+
+                    </FrameLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/bg"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@drawable/bg_dialog"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/txtTitle"
-                            style="@style/single_marquee"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginHorizontal="0dp"
-                            android:fontFamily="@font/crimson_text_bold"
+                            android:id="@+id/txtContent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="20dp"
+                            android:fontFamily="@font/rufing_personaluse"
                             android:gravity="center"
-                            android:text="@string/loading"
+                            android:text="@string/wait_a_few_second"
+                            android:textColor="@color/app_color"
+                            android:textSize="16sp"
+                            android:layout_marginBottom="-20dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!--                        <com.airbnb.lottie.LottieAnimationView-->
+                        <!--                            android:id="@+id/animationView"-->
+                        <!--                            android:layout_width="100dp"-->
+                        <!--                            android:layout_height="100dp"-->
+                        <!--                            android:layout_marginTop="-20dp"-->
+                        <!--                            app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                        <!--                            app:layout_constraintTop_toBottomOf="@+id/txtContent"-->
+                        <!--                            app:lottie_autoPlay="true"-->
+                        <!--                            app:lottie_loop="true"-->
+                        <!--                            app:lottie_rawRes="@raw/json_loading" />-->
+
+                        <TextView
+                            android:id="@+id/btnNo"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/bg_btn_rate"
+                            android:fontFamily="@font/roboto_medium"
+                            android:gravity="center"
+                            android:text="@string/no"
                             android:textColor="@color/white"
-                            android:textSize="18sp"
-                            app:strokeJoinStyle="miter" />
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintDimensionRatio="1.00:0.36"
+                            app:layout_constraintEnd_toStartOf="@+id/btnYes"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtContent" />
 
-                    </FrameLayout>
+                        <TextView
+                            android:id="@+id/btnYes"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/bg_btn_rate"
+                            android:fontFamily="@font/roboto_medium"
+                            android:gravity="center"
+                            android:text="@string/tv_yes"
+                            android:textColor="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintDimensionRatio="1.00:0.36"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnNo"
+                            app:layout_constraintTop_toTopOf="@+id/btnNo" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/txtContent"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:fontFamily="@font/crimsontext_regular"
-                        android:gravity="center"
-                        android:text="@string/wait_a_few_second"
-                        android:textColor="@color/app_color"
-                        android:textSize="16dp"
-                        android:layout_marginBottom="-30dp"
-                        app:layout_constraintBottom_toTopOf="@+id/animationView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/titleFame" />
 
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/animationView"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/json_loading" />
-
-                    <TextView
-                        android:id="@+id/btnNo"
-                        android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_marginStart="20dp"
-                        android:background="@drawable/bg_8_color"
-                        android:fontFamily="@font/crimsontext_regular"
-                        android:gravity="center"
-                        android:text="@string/no"
-                        android:textColor="@color/app_color"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintDimensionRatio="1.01:0.36"
-                        app:layout_constraintEnd_toStartOf="@+id/btnYes"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtContent" />
-
-                    <TextView
-                        android:id="@+id/btnYes"
-                        android:layout_width="0dp"
-                        android:layout_height="36dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="@drawable/bg_btn_loading_yes"
-                        android:fontFamily="@font/crimsontext_regular"
-                        android:gravity="center"
-                        android:text="@string/tv_yes"
-                        android:textColor="@color/white"
-                        android:visibility="gone"
-                        app:layout_constraintDimensionRatio="1.01:0.36"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/btnNo"
-                        app:layout_constraintTop_toTopOf="@+id/btnNo" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </LinearLayout>
         </LinearLayout>
-
         <FrameLayout
             android:id="@+id/flGetText"
             android:layout_width="match_parent"

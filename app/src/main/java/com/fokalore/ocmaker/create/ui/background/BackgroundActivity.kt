@@ -83,7 +83,6 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
 //
 //    }
     override fun initView() {
-        binding.btnBg.updateMargin(this@BackgroundActivity, bottomDp = 15)
 //        binding.txtContent.post {
 //            binding.txtContent.gradientHorizontal(
 //                startColor = "#01579B".toColorInt(),
@@ -118,7 +117,7 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
                     binding.llBottom,
                     0f,
                     0f,
-                    dpToPx(300f, applicationContext),
+                    dpToPx(200f, applicationContext),
                     0f
                 )
             } else {
@@ -187,13 +186,13 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
 
     private fun dismissLoading() {
         binding.llLoading.hide()
-        binding.animationView.hide()
+//        binding.animationView.hide()
     }
 
     private fun showLoading() {
         binding.llLoading.show()
 //        applyGradientToLoadingText()
-        binding.animationView.show()
+//        binding.animationView.show()
     }
     private fun clearFocus() {
         binding.drawView.hideSelect()
@@ -239,6 +238,7 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
                 hideKeyboard()
                 selectBottomTab(btnBg)
                 llBG.show()
+                linearbg.show()
                 llStiker.hide()
                 llText.hide()
                 llTextBG.hide()
@@ -249,12 +249,14 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
                 llBG.hide()
                 llStiker.show()
                 llText.hide()
+                linearbg.hide()
                 llTextBG.hide()
             }
             btnBgText.onSingleClick {
                 hideKeyboard()
                 selectBottomTab(btnBgText)
                 llBG.hide()
+                linearbg.hide()
                 llStiker.hide()
                 llTextBG.show()
                 llText.hide()
@@ -263,28 +265,26 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
                 hideKeyboard()
                 selectBottomTab(btnText)
                 llBG.hide()
+                linearbg.hide()
                 llStiker.hide()
                 llTextBG.hide()
                 llText.show()
             }
-            iclBg.apply {
+            binding.apply {
                 btnImage.onSingleClick {
-                    rcvImage.show()
-                    rcvColor.hide()
-                    btnImage.setBackgroundResource(R.drawable.bg_custom_choose)
-                    btnImage.setTextColor(ContextCompat.getColor(this@BackgroundActivity, R.color.white))
-
-                    btnColor.setBackgroundResource(R.drawable.bg_custom_unchoose)
-                    btnColor.setTextColor(ContextCompat.getColor(this@BackgroundActivity, R.color.app_color))
+                    iclBg.apply {
+                        rcvImage.show()
+                        rcvColor.hide()
+                    }
+                    btnImage.setImageResource(R.drawable.img_bg_select)
+                    btnColor.setImageResource(R.drawable.img_color_unselect)
                 }
                 btnColor.onSingleClick {
+                    iclBg.apply {
                     rcvColor.show()
-                    rcvImage.hide()
-                    btnColor.setBackgroundResource(R.drawable.bg_custom_choose)
-                    btnColor.setTextColor(ContextCompat.getColor(this@BackgroundActivity, R.color.white))
-
-                    btnImage.setBackgroundResource(R.drawable.bg_custom_unchoose)
-                    btnImage.setTextColor(ContextCompat.getColor(this@BackgroundActivity, R.color.app_color))
+                    rcvImage.hide()}
+                    btnImage.setImageResource(R.drawable.img_bg_unselect)
+                    btnColor.setImageResource(R.drawable.img_color_select)
                 }
             }
             imvBack.onSingleClick {
@@ -346,7 +346,7 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
                 hideKeyboard()
                 binding.llLoading.show()
 //                applyGradientToLoadingText()
-                binding.animationView.show()
+//                binding.animationView.show()
                 clearFocus()
                 lifecycleScope.launch(Dispatchers.IO) {
                     delay(200)
@@ -358,7 +358,7 @@ class BackgroundActivity : AbsBaseActivity<ActivityBackgroundBinding>() {
                     ) { it, path, _ ->
                         if (it) {
                             binding.llLoading.visibility = View.GONE
-                            binding.animationView.hide()
+//                            binding.animationView.hide()
 
                             startActivity(
                                 Intent(
