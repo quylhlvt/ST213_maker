@@ -18,10 +18,8 @@ class App : Application()  {
     companion object {
         lateinit var instance:App
             private set
-
         val context: Context
             get() = instance.applicationContext
-
     }
     override fun onCreate() {
         super.onCreate()
@@ -33,7 +31,6 @@ class App : Application()  {
                 MusicLocal.play(context)
 
             }
-
             override fun onStop(owner: LifecycleOwner) {
                 // App ra background → tạm dừng nhạc
                 MusicLocal.pause()

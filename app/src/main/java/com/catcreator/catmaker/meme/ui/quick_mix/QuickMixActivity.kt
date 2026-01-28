@@ -34,6 +34,7 @@ import kotlin.collections.set
 import kotlin.coroutines.coroutineContext
 import kotlin.math.abs
 
+
 @AndroidEntryPoint
 class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
     private var sizeMix = 20
@@ -68,7 +69,7 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
     private var currentVisibleRange = IntRange.EMPTY
 
     // Cache size limit
-    private val maxCacheSize = 20
+    private val maxCacheSize = 30
 
     private val networkReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -144,16 +145,14 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
             })
 
             if (isOfflineMode) {
-                // ✅ Check empty trước khi tính toán
                 if (DataHelper.arrBlackCentered.isEmpty()) {
                     finish()
                     return
                 }
-                val offlineCount = DataHelper.arrBlackCentered.count { !it.checkDataOnline }
-                sizeMix = minOf(offlineCount * 20, 20)
+                // ✅ Luôn load 20 item (từ 4 nhân vật cuối)
+                sizeMix = 20
                 loadOfflineLastCharacter()
             } else {
-                // ✅ Check empty trước khi load
                 if (DataHelper.arrBlackCentered.isEmpty()) {
                     finish()
                     return
@@ -181,19 +180,19 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
 
     private fun loadOfflineMode() {
         lifecycleScope.launch(Dispatchers.Main) {
-            // Reset cache only
+            // Reset cache
             arrBitmap.clear()
             layerCache.clear()
 
-            val offlineCount = DataHelper.arrBlackCentered.count { !it.checkDataOnline }
-            sizeMix = minOf(offlineCount * 20, 20)
+            // ✅ Luôn load 20 item
+            sizeMix = 20
 
             loadOfflineLastCharacter()
         }
     }
 
     private fun cancelNonVisibleJobs(firstVisible: Int, lastVisible: Int) {
-        val preloadBuffer = 3
+        val preloadBuffer = 4
         val keepRange = (firstVisible - preloadBuffer)..(lastVisible + preloadBuffer)
 
         loadingJobs.entries.removeAll { (position, job) ->
@@ -222,19 +221,26 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
     }
 
     private fun loadOfflineLastCharacter() {
-        // ✅ Check empty trước
         if (DataHelper.arrBlackCentered.isEmpty()) return
 
         val offlineModels = DataHelper.arrBlackCentered.filter { !it.checkDataOnline }
 
         if (offlineModels.isEmpty()) return
 
+        // ✅ Lấy 4 nhân vật cuối cùng từ danh sách offline
+        val last4Characters = if (offlineModels.size >= 4) {
+            offlineModels.takeLast(4)
+        } else {
+            offlineModels // Nếu ít hơn 4 thì lấy hết
+        }
+
         val tempArrMix = arrayListOf<CustomModel>()
         val tempArrListImageSortView = mutableListOf<ArrayList<String>>()
         val resultList = mutableListOf<ArrayList<ArrayList<Int>>>()
 
+        // ✅ Tạo 20 item từ 4 nhân vật cuối (mỗi nhân vật lặp 5 lần)
         repeat(sizeMix) { index ->
-            val currentModel = offlineModels[index % offlineModels.size]
+            val currentModel = last4Characters[index % last4Characters.size]
 
             val list = ArrayList<String>().apply {
                 repeat(currentModel.bodyPart.size) { add("") }
@@ -270,15 +276,19 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
             tempArrMix.add(currentModel)
         }
 
-        // ✅ Load xong data mới thì clear list cũ và update
+        // ✅ Clear và update
         arrMix.clear()
-        adapter.arrListImageSortView.clear()
-        adapter.listArrayInt.clear()
-
-        adapter.arrListImageSortView.addAll(tempArrListImageSortView)
-        adapter.listArrayInt.addAll(resultList)
         arrMix.addAll(tempArrMix)
+
+        adapter.arrListImageSortView.clear()
+        adapter.arrListImageSortView.addAll(tempArrListImageSortView)
+
+        adapter.listArrayInt.clear()
+        adapter.listArrayInt.addAll(resultList)
+
+        // ✅ Notify adapter
         adapter.submitList(ArrayList(arrMix))
+        adapter.notifyDataSetChanged()
 
         preloadVisibleAndNext()
     }
@@ -286,7 +296,6 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
     private fun loadAllItems() {
         if (isLoading) return
 
-        // ✅ Check empty để tránh divide by zero
         if (DataHelper.arrBlackCentered.isEmpty()) {
             isLoading = false
             return
@@ -337,15 +346,20 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
             }
 
             withContext(Dispatchers.Main) {
-                // ✅ Load xong data mới thì clear list cũ và update
+                // ✅ Clear và update
                 arrMix.clear()
-                adapter.arrListImageSortView.clear()
-                adapter.listArrayInt.clear()
-
-                adapter.arrListImageSortView.addAll(tempArrListImageSortView)
-                adapter.listArrayInt.addAll(resultList)
                 arrMix.addAll(tempArrMix)
+
+                adapter.arrListImageSortView.clear()
+                adapter.arrListImageSortView.addAll(tempArrListImageSortView)
+
+                adapter.listArrayInt.clear()
+                adapter.listArrayInt.addAll(resultList)
+
+                // ✅ Notify adapter
                 adapter.submitList(ArrayList(arrMix))
+                adapter.notifyDataSetChanged()
+
                 isLoading = false
 
                 preloadVisibleAndNext()
@@ -360,7 +374,7 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
 
         if (firstVisible == RecyclerView.NO_POSITION) return
 
-        val positions = (firstVisible..minOf(lastVisible + 3, arrMix.size - 1)).toList()
+        val positions = (firstVisible..minOf(lastVisible + 4, arrMix.size - 1)).toList()
 
         val visibleFirst = positions.filter { it in firstVisible..lastVisible }
         val nextItems = positions.filter { it !in firstVisible..lastVisible }
@@ -382,6 +396,9 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
         job?.let { loadingJobs[position] = it }
 
         try {
+            // ✅ Check bounds
+            if (position >= arrMix.size) return
+
             val model = arrMix[position]
 
             if (model.checkDataOnline && isOfflineMode) {
@@ -399,16 +416,16 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
 
             currentLoadingCount.incrementAndGet()
 
-            val characterIndex = DataHelper.arrBlackCentered.indexOf(model)
-
-            if (characterIndex == -1) {
+            // ✅ Lấy data trực tiếp từ adapter bằng position
+            if (position >= adapter.arrListImageSortView.size ||
+                position >= adapter.listArrayInt.size) {
                 currentLoadingCount.decrementAndGet()
                 loadingPositions.remove(position)
                 loadingJobs.remove(position)
                 return
             }
 
-            val listImageSortView = adapter.arrListImageSortView[characterIndex]
+            val listImageSortView = adapter.arrListImageSortView[position]
             val coordSet = adapter.listArrayInt[position]
 
             if (model.checkDataOnline && isOfflineMode) {
@@ -573,6 +590,7 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
             adapter.onCLick = { position ->
                 val model = arrMix[position]
                 val index = DataHelper.arrBlackCentered.indexOf(model)
+
                 if (index != -1) {
                     startActivity(
                         newIntent(this@QuickMixActivity, CustomviewActivity::class.java)
@@ -583,6 +601,7 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
             }
         }
     }
+
 //    override fun onDestroy() {
 //        super.onDestroy()
 //        try {
@@ -592,5 +611,11 @@ class QuickMixActivity : AbsBaseActivity<ActivityQuickMixBinding>() {
 //        }
 //        loadingJobs.values.forEach { it.cancel() }
 //        loadingJobs.clear()
+//
+//        // Clean up bitmaps
+//        arrBitmap.values.forEach { it.recycle() }
+//        arrBitmap.clear()
+//        layerCache.values.forEach { it.recycle() }
+//        layerCache.clear()
 //    }
 }
