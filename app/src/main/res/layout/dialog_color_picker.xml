@@ -40,11 +40,11 @@
 
                 <ImageView
                     android:id="@+id/btnClose"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/ic_close_1_color"
-                    app:tint="@color/app_color" />
+                    />
             </RelativeLayout>
 
             <ir.kotlin.kavehcolorpicker.KavehColorPicker
@@ -75,6 +75,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_marginVertical="22dp"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_height="wrap_content">
 
                     <RelativeLayout
@@ -116,7 +117,7 @@
                             android:gravity="center"
                             android:text="@string/done"
                             android:textColor="@color/app_color"
-                            android:textSize="16sp" />
+                            android:textSize="18sp" />
                     </RelativeLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

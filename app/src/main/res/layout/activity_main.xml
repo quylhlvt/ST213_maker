@@ -30,8 +30,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvSetting"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginEnd="16dp"
             android:elevation="1dp"
             android:src="@drawable/ic_setting"
@@ -114,7 +114,7 @@
                     tools:layout_editor_absoluteX="16dp" />
 
                 <!--            tv1-->
-                <com.fokalore.ocmaker.create.utils.StrokeTextView
+                <com.catcreator.catmaker.meme.utils.StrokeTextView
                     android:id="@+id/tv1"
                     style="@style/single_marquee"
                     android:layout_width="0dp"
@@ -144,13 +144,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/btnCreate" />
 
                 <!--            tv2-->
-                <com.fokalore.ocmaker.create.utils.StrokeTextView
+                <com.catcreator.catmaker.meme.utils.StrokeTextView
                     android:id="@+id/tv2"
                     style="@style/single_marquee"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginHorizontal="5dp"
-                    android:fontFamily="@font/crimson_text_bold"
+                    android:fontFamily="@font/rufing_personaluse"
                     android:gravity="center"
                     android:text="@string/random_cat"
                     android:textColor="@color/FF0000"
@@ -173,7 +173,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnRandomCat">
 
-                    <com.fokalore.ocmaker.create.utils.StrokeTextView
+                    <com.catcreator.catmaker.meme.utils.StrokeTextView
                         android:id="@+id/btnQuickMaker"
                         style="@style/single_marquee"
                         android:layout_width="wrap_content"
@@ -185,12 +185,12 @@
                         android:gravity="center"
                         android:text="@string/quickcreate"
                         android:textColor="@color/app_color"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         app:strokeJoinStyle="miter"
                         app:strokeMiter="5dp"
                         app:strokeWidth="1dp" />
 
-                    <com.fokalore.ocmaker.create.utils.StrokeTextView
+                    <com.catcreator.catmaker.meme.utils.StrokeTextView
                         android:id="@+id/btnMyAlbum"
                         style="@style/single_marquee"
                         android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
                         android:gravity="center"
                         android:text="@string/my_work"
                         android:textColor="@color/FF0000"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         app:strokeJoinStyle="miter"
                         app:strokeMiter="5dp"
                         app:strokeWidth="1dp" />

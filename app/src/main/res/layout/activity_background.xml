@@ -7,12 +7,13 @@
         android:layout_width="match_parent"
         android:id="@+id/main"
         android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.Guideline
+
+        <View
             android:id="@+id/guideline_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.65" />
+            app:layout_constraintBottom_toBottomOf="parent" />
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -21,22 +22,24 @@
             app:layout_constraintTop_toTopOf="parent" />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
             android:src="@drawable/ic_back_app"
-            app:layout_constraintStart_toStartOf="@+id/drawView"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnSave"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:elevation="1dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/ic_save"
             android:adjustViewBounds="true"
             app:layout_constraintBottom_toBottomOf="@id/imvBack"
-            app:layout_constraintEnd_toEndOf="@+id/drawView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/imvBack" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/llTop"
@@ -53,8 +56,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnReset"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
                 android:src="@drawable/ic_reset"
 
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +78,7 @@
             />
 
 
-        <com.fokalore.ocmaker.create.custom.DrawView
+        <com.catcreator.catmaker.meme.custom.DrawView
             android:id="@+id/drawView"
             android:layout_marginTop="10dp"
             android:layout_width="0dp"
@@ -93,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
-        </com.fokalore.ocmaker.create.custom.DrawView>
+        </com.catcreator.catmaker.meme.custom.DrawView>
 
         <ImageView
             android:id="@+id/navBottom"
@@ -152,30 +155,35 @@
             android:background="@drawable/bg_select_img_color"
             android:layout_width="0dp"
             android:layout_height="41dp"
-            android:layout_marginBottom="-28dp"
+            android:layout_marginBottom="-18dp"
             android:weightSum="2"
             android:id="@+id/linearbg"
             android:gravity="center"
+            android:paddingHorizontal="10dp"
             app:layout_constraintBottom_toTopOf="@id/ctl"
             app:layout_constraintDimensionRatio="0.91:0.41"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
+                android:layout_gravity="center"
                 android:id="@+id/btnColor"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="32dp"
+                android:adjustViewBounds="true"
                 android:src="@drawable/img_color_select"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:layout_gravity="center"
                 android:id="@+id/btnImage"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:src="@drawable/img_bg_unselect"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -184,11 +192,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ctl"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="280dp"
             app:layout_constraintBottom_toTopOf="@id/llBottom">
 
             <LinearLayout
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:id="@+id/llBG"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -251,44 +259,60 @@
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#80545454"
-                android:weightSum="800"
-                android:orientation="vertical"
                 android:gravity="center">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_weight="160"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="57dp">
-
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/titleFame"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="-20dp"
+                    app:cardBackgroundColor="#40000000"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="17dp"
+                    app:strokeWidth="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                    app:layout_constraintDimensionRatio="1.1:0.37"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
                     <FrameLayout
-                        android:id="@+id/titleFame"
-                        android:layout_width="0dp"
-                        android:layout_height="37dp"
-                        android:background="@drawable/bg_title_dialog"
-                        app:layout_constraintDimensionRatio="1.1:0.37"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:elevation="1dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_title_dialog">
+
                         <TextView
-                            style="@style/single_marquee"
-                            app:strokeJoinStyle="miter"
                             android:id="@+id/txtTitle"
-                            android:gravity="center"
-                            android:textSize="20sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/rufing_personaluse"
+                            style="@style/single_marquee"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/loading"/>
+                            android:layout_marginHorizontal="20dp"
+                            android:fontFamily="@font/rufing_personaluse"
+                            android:gravity="center"
+                            android:text="@string/loading"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:strokeJoinStyle="miter" />
 
                     </FrameLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="58dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="2.44:1.4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/bg"
@@ -310,7 +334,6 @@
                             android:text="@string/wait_a_few_second"
                             android:textColor="@color/app_color"
                             android:textSize="16sp"
-                            android:layout_marginBottom="-20dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -366,7 +389,7 @@
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
         <FrameLayout
             android:id="@+id/flGetText"

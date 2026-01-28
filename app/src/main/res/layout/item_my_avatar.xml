@@ -54,7 +54,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="12dp"
-                android:src="@drawable/imv_edit_2" />
+                android:src="@drawable/imv_edit" />
 
             <ImageView
                 android:id="@+id/btnDelete"

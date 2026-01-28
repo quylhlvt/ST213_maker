@@ -10,16 +10,16 @@ plugins {
 }
 
 android {
-    namespace 'com.fokalore.ocmaker.create'
+    namespace 'com.catcreator.catmaker.meme'
     compileSdk 36
     defaultConfig {
-        applicationId "com.fokalore.ocmaker.create"
+        applicationId "com.catcreator.catmaker.meme"
         minSdk 24
         targetSdk 36
         versionCode 1
         versionName "1.0.0"
         def formattedDate = new Date().format('MM.dd.yyyy')
-        archivesBaseName = "Folklore_OC_Maker_${versionName}_${formattedDate}"
+        archivesBaseName = "Cat_Creator_Meme_Cat_Maker_${versionName}_${formattedDate}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

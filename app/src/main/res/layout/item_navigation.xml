@@ -17,23 +17,23 @@
             android:id="@+id/bg"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:strokeWidth="0dp"
+            app:strokeWidth="1dp"
             app:cardCornerRadius="12dp"
             app:strokeColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imv"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/bg"
-            app:layout_constraintEnd_toEndOf="@id/bg"
-            app:layout_constraintStart_toStartOf="@id/bg"
-            app:layout_constraintTop_toTopOf="@id/bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:layout_marginHorizontal="4dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:scaleType="fitXY"
+            />
+        </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

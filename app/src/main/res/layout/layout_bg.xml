@@ -82,9 +82,8 @@
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/llTop"
-            tools:itemCount="10"
-            android:visibility="visible
-"
+            tools:itemCount="20"
+            android:visibility="visible"
             tools:listitem="@layout/item_color_bg"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "131632993575",
-    "project_id": "st194-folklore-oc-maker",
-    "storage_bucket": "st194-folklore-oc-maker.firebasestorage.app"
+    "project_number": "25063826817",
+    "project_id": "st213-catcreatormemecat",
+    "storage_bucket": "st213-catcreatormemecat.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:131632993575:android:1cabde48c0118a69460502",
+        "mobilesdk_app_id": "1:25063826817:android:a9e241ad079abeff50f480",
         "android_client_info": {
-          "package_name": "com.fokalore.ocmaker.create"
+          "package_name": "com.catcreator.catmaker.meme"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDG3kkMqUYyGBYqnUkfE7YmzDNINTOyI2Q"
+          "current_key": "AIzaSyAfRZXcetnUWAEGOncWXOxr-PW7trHn5Xg"
         }
       ],
       "services": {

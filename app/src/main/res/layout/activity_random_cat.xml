@@ -15,8 +15,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
@@ -26,8 +26,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvNext"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
             android:layout_marginEnd="20dp"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.fokalore.ocmaker.create.utils.StrokeTextView
+        <com.catcreator.catmaker.meme.utils.StrokeTextView
             android:id="@+id/titleRandom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

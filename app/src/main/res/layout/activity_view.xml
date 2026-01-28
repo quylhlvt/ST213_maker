@@ -14,8 +14,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
@@ -25,8 +25,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvEdit"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/imv_edit_2"
             app:layout_constraintBottom_toBottomOf="@id/imvBack"
@@ -46,11 +46,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="29dp"
-            android:layout_marginVertical="13dp"
+            android:layout_marginVertical="40dp"
             app:cardBackgroundColor="@color/transparent"
             app:cardCornerRadius="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/llBottom"
-            app:layout_constraintDimensionRatio="3:4.68"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imvBack"
@@ -69,10 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="48dp"
             android:visibility="visible"
-            android:layout_marginBottom="13dp"
-            app:layout_constraintBottom_toTopOf="@+id/imvDelete"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
             tools:layout_editor_absoluteX="8dp">
 
             <LinearLayout
@@ -98,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:ellipsize="marquee"
-                    android:fontFamily="@font/crimson_text_semi_bold"
+                    android:fontFamily="@font/rufing_personaluse"
                     android:marqueeRepeatLimit="3"
                     android:singleLine="true"
                     android:text="@string/share"
@@ -130,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:ellipsize="marquee"
-                    android:fontFamily="@font/crimson_text_semi_bold"
+                    android:fontFamily="@font/rufing_personaluse"
                     android:marqueeRepeatLimit="3"
                     android:singleLine="true"
                     android:text="@string/download"
@@ -140,20 +138,21 @@
         </LinearLayout>
 
         <TextView
-            android:layout_marginBottom="100dp"
             android:id="@+id/imvDelete"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="25dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/bg_delete_view"
-            android:fontFamily="@font/crimson_text_semi_bold"
+            android:fontFamily="@font/rufing_personaluse"
             android:gravity="center"
             android:text="@string/delete"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="17dp"
             app:layout_constraintEnd_toEndOf="@+id/llBottom"
-            app:layout_constraintStart_toStartOf="@+id/llBottom"/>
+            app:layout_constraintStart_toStartOf="@+id/llBottom"
+            app:layout_constraintTop_toBottomOf="@+id/llBottom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

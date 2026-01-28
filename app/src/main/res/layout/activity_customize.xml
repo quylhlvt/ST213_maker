@@ -21,8 +21,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
             android:src="@drawable/ic_back_app"
@@ -31,8 +31,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnSave"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:adjustViewBounds="true"
             android:src="@drawable/ic_save"
             app:layout_constraintBottom_toBottomOf="@id/imvBack"
@@ -52,8 +52,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnReset"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
                 android:elevation="1dp"
                 android:src="@drawable/ic_reset"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -63,8 +63,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btnRevert"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
                 android:elevation="1dp"
                 android:src="@drawable/ic_flip"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -98,8 +98,7 @@
             android:id="@+id/rl"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginVertical="8dp"
-            android:layout_marginHorizontal="50dp"
+            android:layout_margin="20dp"
             android:elevation="0dp"
             android:visibility="visible"
             app:layout_constraintDimensionRatio="1:1"
@@ -110,8 +109,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnDice"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:elevation="1dp"
             android:layout_marginEnd="20dp"
             android:src="@drawable/imv_random"
@@ -121,12 +120,11 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvShowColor"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:elevation="1dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="24dp"
+            android:elevation="1dp"
             android:src="@drawable/imv_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rl" />
@@ -137,7 +135,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="20dp"
             android:gravity="start"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="@id/imvShowColor"
@@ -157,7 +155,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginVertical="8dp">
+                    android:layout_marginVertical="6dp">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcvColor"
@@ -222,8 +220,6 @@
                 tools:itemCount="10"
                 tools:listitem="@layout/item_navigation" />
         </LinearLayout>
-
-
         <LinearLayout
             android:visibility="gone"
             android:elevation="4dp"
@@ -234,45 +230,54 @@
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#80545454"
-                android:weightSum="800"
-                android:orientation="vertical"
                 android:gravity="center">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_weight="160"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginHorizontal="57dp">
-
-
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/titleFame"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="-20dp"
+                    app:cardBackgroundColor="#40000000"
+                    app:cardElevation="8dp"
+                    app:cardCornerRadius="17dp"
+                    app:strokeWidth="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                    app:layout_constraintDimensionRatio="1.1:0.37"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
                     <FrameLayout
-                        android:id="@+id/titleFame"
-                        android:layout_width="0dp"
-                        android:layout_height="37dp"
-                        android:background="@drawable/bg_title_dialog"
-                        app:layout_constraintDimensionRatio="1.1:0.37"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:elevation="1dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_title_dialog">
+
                         <TextView
-                            style="@style/single_marquee"
-                            app:strokeJoinStyle="miter"
                             android:id="@+id/txtTitle"
-                            android:gravity="center"
-                            android:textSize="20sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/rufing_personaluse"
+                            style="@style/single_marquee"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="@string/loading"/>
-
+                            android:layout_marginHorizontal="20dp"
+                            android:fontFamily="@font/rufing_personaluse"
+                            android:gravity="center"
+                            android:text="@string/loading"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:strokeJoinStyle="miter" />
                     </FrameLayout>
-
+                </com.google.android.material.card.MaterialCardView>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="58dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="2.44:1.4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/bg"
                         android:layout_width="0dp"
@@ -282,7 +287,6 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
-
                         <TextView
                             android:id="@+id/txtContent"
                             android:layout_width="0dp"
@@ -293,7 +297,6 @@
                             android:text="@string/wait_a_few_second"
                             android:textColor="@color/app_color"
                             android:textSize="16sp"
-                            android:layout_marginBottom="-20dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -310,7 +313,6 @@
 <!--                            app:lottie_autoPlay="true"-->
 <!--                            app:lottie_loop="true"-->
 <!--                            app:lottie_rawRes="@raw/json_loading" />-->
-
                         <TextView
                             android:id="@+id/btnNo"
                             android:layout_width="0dp"
@@ -329,7 +331,6 @@
                             app:layout_constraintEnd_toStartOf="@+id/btnYes"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/txtContent" />
-
                         <TextView
                             android:id="@+id/btnYes"
                             android:layout_width="0dp"
@@ -346,10 +347,8 @@
                             app:layout_constraintStart_toEndOf="@+id/btnNo"
                             app:layout_constraintTop_toTopOf="@+id/btnNo" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

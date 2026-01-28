@@ -1,4 +1,4 @@
-package com.fokalore.ocmaker.create
+package com.catcreator.catmaker.meme
 
 import org.junit.Assert
 import org.junit.Test

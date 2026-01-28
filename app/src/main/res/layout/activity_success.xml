@@ -13,8 +13,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
@@ -22,17 +22,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.catcreator.catmaker.meme.utils.StrokeTextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="100dp"
             android:ellipsize="marquee"
-            android:textColor="@color/app_color2"
-            android:textSize="26sp"
+            android:textColor="@color/app_color"
+            android:textSize="24sp"
             app:strokeWidth="2dp"
             app:strokeColor="@color/app_color"
-            android:fontFamily="@font/crimsontext_regular"
+            android:fontFamily="@font/rufing_personaluse"
             android:gravity="center"
             android:marqueeRepeatLimit="3"
             android:singleLine="true"
@@ -47,8 +47,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvHome"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/imv_home"
             app:layout_constraintBottom_toBottomOf="@id/imvBack"
@@ -68,15 +68,14 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardImv"
             android:layout_marginVertical="13dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvContent"
-            app:layout_constraintDimensionRatio="3:4.68"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginHorizontal="29dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imvBack"
             android:layout_height="0dp"
             app:cardBackgroundColor="@color/transparent"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="12dp"
             app:strokeWidth="0dp"
             android:layout_width="0dp"
             >
@@ -90,15 +89,24 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContent"
-            android:layout_width="match_parent"
+            style="@style/single_marquee"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginBottom="13dp"
-            android:fontFamily="@font/crimson_text_bold_italic"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/nunito_bold_italic"
+            android:freezesText="true"
             android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
             android:text="@string/image_has_been_saved_successfully"
             android:textColor="@color/app_color"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/llBottom"/>
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardImv" />
 
         <LinearLayout
             android:id="@+id/llBottom"
@@ -108,9 +116,10 @@
             android:paddingTop="13dp"
             android:paddingBottom="13dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/imvShare"
+            android:layout_marginTop="18dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent">
 
             <LinearLayout
                 android:id="@+id/btnMyWork"
@@ -135,11 +144,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:ellipsize="marquee"
-                    android:fontFamily="@font/crimson_text_semi_bold"
+                    android:fontFamily="@font/rufing_personaluse"
                     android:freezesText="true"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
-                    android:text="@string/my_creation"
+                    android:text="@string/my_work"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -167,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:ellipsize="marquee"
-                    android:fontFamily="@font/crimson_text_semi_bold"
+                    android:fontFamily="@font/rufing_personaluse"
                     android:marqueeRepeatLimit="3"
                     android:singleLine="true"
                     android:text="@string/download"
@@ -177,20 +186,20 @@
         </LinearLayout>
 
         <TextView
-            android:layout_marginBottom="100dp"
             android:id="@+id/imvShare"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="15dp"
             android:layout_weight="1"
             android:background="@drawable/bg_share_success"
-            android:fontFamily="@font/crimson_text_semi_bold"
+            android:fontFamily="@font/rufing_personaluse"
             android:gravity="center"
             android:text="@string/share"
-            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/app_color"
             android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/llBottom"
-            app:layout_constraintStart_toStartOf="@+id/llBottom"/>
+            app:layout_constraintStart_toStartOf="@+id/llBottom"
+            app:layout_constraintTop_toBottomOf="@+id/llBottom" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

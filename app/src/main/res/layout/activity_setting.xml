@@ -13,8 +13,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
             android:layout_marginStart="20dp"
@@ -24,17 +24,17 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvMusic"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/ic_music_app"
+            android:src="@drawable/ic_music_app_true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <com.fokalore.ocmaker.create.utils.StrokeTextView
+        <com.catcreator.catmaker.meme.utils.StrokeTextView
             android:id="@+id/titleSetting"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

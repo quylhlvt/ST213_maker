@@ -1,4 +1,4 @@
-package com.fokalore.ocmaker.create
+package com.catcreator.catmaker.meme
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.fokalore.ocmaker.create", appContext.packageName)
+        assertEquals("com.catcreator.catmaker.meme", appContext.packageName)
     }
 }

@@ -14,8 +14,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imvBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:elevation="1dp"
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.fokalore.ocmaker.create.utils.StrokeTextView
+        <com.catcreator.catmaker.meme.utils.StrokeTextView
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -84,11 +84,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="41dp">
+                android:layout_height="45dp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/btnAvatar"
-                    app:layout_constraintDimensionRatio="1.41:0.41"
+                    app:layout_constraintDimensionRatio="1.5:0.45"
                     style="@style/single_marquee"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -110,7 +110,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="41dp">
+                android:layout_height="45dp">
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/btnDesign"
                     android:layout_width="0dp"
@@ -121,7 +121,7 @@
                     android:text="@string/design"
                     android:textColor="@color/app_color"
                     android:textSize="16sp"
-                    app:layout_constraintDimensionRatio="1.41:0.41"
+                    app:layout_constraintDimensionRatio="1.5:0.45"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

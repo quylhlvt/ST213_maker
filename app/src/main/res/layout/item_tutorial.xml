@@ -7,7 +7,7 @@
 
         <variable
             name="mTutorialModel"
-            type="com.fokalore.ocmaker.create.data.model.TutorialModel" />
+            type="com.catcreator.catmaker.meme.data.model.TutorialModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,6 +25,7 @@
             android:adjustViewBounds="true"
             android:layout_weight="1"
             android:scaleType="fitXY"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toTopOf="@+id/tv1"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -6,7 +6,7 @@
 
         <variable
             name="languageModel"
-            type="com.fokalore.ocmaker.create.data.model.LanguageModel" />
+            type="com.catcreator.catmaker.meme.data.model.LanguageModel" />
     </data>
 
 

@@ -23,7 +23,6 @@
             android:gravity="center"
             android:text="Aa"
             android:textColor="@color/app_color"
-            android:textSize="16sp"
-            android:paddingBottom="2dp"/>
+            android:textSize="18sp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

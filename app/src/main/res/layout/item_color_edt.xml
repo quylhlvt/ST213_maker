@@ -7,33 +7,54 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="12dp">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="1dp"
-            android:background="@color/white"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percents"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:src="@drawable/imv_color_true"/>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imvPlus"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/imv_plus"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="3dp"
+        android:layout_marginEnd="3dp">
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardColor"
+                android:layout_margin="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="1000dp"
+                app:cardElevation="0dp">
+
+                <!--            imvColor-->
+                <ImageView
+                    android:id="@+id/imvColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!--            btnAddColor-->
+                <ImageView
+                    android:id="@+id/btnAddColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/imv_plus" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!--        vFocus-->
+
+            <View
+                android:id="@+id/vFocus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="10dp"
+                android:layout_margin="3dp"
+                android:background="@drawable/bg_100_stroke_red" />
+
+        </FrameLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

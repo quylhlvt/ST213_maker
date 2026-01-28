@@ -39,5 +39,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Folklore OC Maker"
+rootProject.name = "Cat Creator Meme Cat Maker"
 include ':app'
